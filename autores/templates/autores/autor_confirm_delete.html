@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Eliminar Autor{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4 text-danger">⚠️ Eliminar Autor</h1>
+    <p>¿Estás seguro de que deseas eliminar el autor <strong>{{ autor.nombre }}</strong>?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+        <a href="{% url 'autores:autor_list' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}

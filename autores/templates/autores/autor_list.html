@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de autores{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Lista de autores</h1>
+
+<a href="{% url 'autores:autor_create' %}" class="btn btn-success mb-3">➕ Nuevo Autor</a>
+
+<table class="table table-bordered shadow-sm">
+    <thead class="table-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Nacionalidad</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for autor in autores %}
+        <tr>
+            <td>{{ autor.nombre }}</td>
+            <td>{{ autor.nacionalidad }}</td>
+            <td>
+                <a href="{% url 'autores:autor_edit' autor.id %}" class="btn btn-warning btn-sm">✏️</a>
+                <a href="{% url 'autores:autor_delete' autor.id %}" class="btn btn-danger btn-sm">🗑️</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5" class="text-center">No hay autores</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+

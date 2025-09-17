@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de Libros{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Lista de Libros</h1>
+
+<a href="{% url 'libros:libro_create' %}" class="btn btn-success mb-3">➕ Nuevo libro</a>
+
+<table class="table table-bordered shadow-sm">
+    <thead class="table-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Fecha</th>
+            <th>Genero</th>
+            <th>Autor</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for libro in libros %}
+        <tr>
+            <td>{{ libro.titulo }}</td>
+            <td>{{ libro.fecha_created }}</td>
+            <td>{{ libro.genero }}</td>
+            <td>{{ libro.autor.nombre }}</td>
+            <td>
+                <a href="{% url 'libros:libro_edit' libro.id %}" class="btn btn-warning btn-sm">✏️</a>
+                <a href="{% url 'libros:libro_delete' libro.id %}" class="btn btn-danger btn-sm">🗑️</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5" class="text-center">No hay libros</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
