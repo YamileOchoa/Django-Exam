@@ -3,6 +3,9 @@
 ## Autor
 Yamile Ochoa Marin
 
+## Video Funcional
+https://youtu.be/FvSxkzeCJ-M
+
 ## Descripción
 Este proyecto es una aplicación web desarrollada en Django que permite administrar [Entidad 1] y [Entidad 2].  
 La aplicación implementa un CRUD completo para ambas entidades y establece la relación necesaria entre ellas.  
